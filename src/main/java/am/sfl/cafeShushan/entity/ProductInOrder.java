@@ -17,6 +17,6 @@ public class ProductInOrder {
     private Long id;
 
 
-    @OneToMany
+    @ManyToMany()
     private List<Product> products;
 }

@@ -130,8 +130,9 @@ public class LoginController {
         Order order = tableService.getOpenOrder(table);
        if (order != null) {
            ProductInOrder productInOrder = order.getProductInOrder();
-           Product product1 = productService.findById(Long.getLong(id));
+           Product product1 = productService.findById(Long.valueOf(id));
            productInOrder.getProducts().add(product1);
+           System.out.println(productInOrder.getProducts().get(0));
            productInOrderService.save(productInOrder);
            modelAndView.addObject("productsInOrder", productInOrder.getProducts());
        }
