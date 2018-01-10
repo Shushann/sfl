@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cafe</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form th:action="@{/logout}" method="get">
+    <button class="btn btn-md btn-warning btn-block" type="Submit">Logout</button>
+</form>
+<br/>
+<form th:action="@{/home}" method="get">
+    <button class="btn btn-md btn-warning btn-block" type="Submit">Back to Home</button>
+</form>
+<br/>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+            <form th:action="@{/manager/new-order}"  method="get">
+                <button class="btn btn-md btn-warning btn-block" type="Submit">Create order</button>
+            </form>
+            <br/>
+            <form th:action="@{/manager/registration}"  method="get">
+                <button class="btn btn-md btn-warning btn-block" type="Submit">Create user</button>
+            </form>
+            <br/>
+            <form th:action="@{/manager/product-reg}"  method="get">
+                <button class="btn btn-md btn-warning btn-block" type="Submit">Create product</button>
+            </form>
+            <br/>
+            <form th:action="@{/manager/table-to-user}"  method="get">
+                <button class="btn btn-md btn-warning btn-block" type="Submit">Create table and assign user</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cafe</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form th:action="@{/logout}" method="get">
+    <button class="btn btn-md btn-warning btn-block" type="Submit">Logout</button>
+</form>
+<br/>
+<form th:action="@{/manager/lists}" method="get">
+    <button class="btn btn-md btn-warning btn-block" type="Submit">Go to Manager Area</button>
+</form>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+
+            <h2>Product List</h2>
+            <div style="overflow: auto;
+                            height: 501px;">
+                <table class="table">
+                    <tr th:each="product : ${products}">
+                    <form th:action="@{/home/busy}" th:object="${product}" enctype="application/x-www-form-urlencoded "
+                          method="post">
+                        <!--<input type="hidden" th:name="id" th:value="${product.id}" />-->
+                        <td th:text="${product.name}">Name</td>
+                        <input type="hidden" th:name="name" th:value="${product.name}" />
+                        <td th:text="${product.price}">Price</td>
+                        <input type="hidden" th:name="price" th:value="${product.price}" />
+
+                        <td>
+                            <a th:href="@{'/home/add-to-order/' + ${product.id}}">add</a>
+                        </td>
+
+                    </form>
+                    </tr>
+                </table>
+            </div>
+
+            <form th:action="@{/home/order}" th:object="${table}" method="get">
+                <button class="btn btn-md btn-warning btn-block" type="Submit">Show Order</button>
+            </form>
+
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
