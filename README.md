@@ -1,5 +1,8 @@
 # sfl
 
+Interview project
+Done within 6 hours
+
 
 first user to be inserted directly to db
 
