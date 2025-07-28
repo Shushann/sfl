@@ -79,7 +79,8 @@ public class LoginController {
         table.setTableStatus(TableStatus.BUSY);
         tableService.save(table);
      Order order = tableService.getOpenOrder(table);
-      if (order ==null){
+      if (order == null) {
+          order = new Order();
           order.setStatus("open");
           order.setTable(table);
           order.setProductInOrder(new ProductInOrder());
